@@ -21,63 +21,76 @@ var app = router;
 
 
 const { v4: uuidv4 } = require('uuid');
-
 let games = [];
 
-// Funkce pro validaci dat
-function validateGameData(data) {
-    const { name, difficulty, board } = data;
-    if (!name || typeof name !== 'string') {
-        return 'Invalid or missing game name';
-    }
-    if (!['easy', 'medium', 'hard'].includes(difficulty)) {
-        return 'Invalid difficulty level';
-    }
-    if (!Array.isArray(board) || board.length !== 15 || !board.every(row => Array.isArray(row) && row.length === 15)) {
-        return 'Invalid board format';
-    }
-    return null;
-}
-
-// Endpoint: Vytvoření nové hry
+// Create a new game
 app.post('/api/v1/games', (req, res) => {
-    const error = validateGameData(req.body);
-    if (error) {
-        return res.status(400).json({ error });
+    const { name, difficulty, board } = req.body;
+    if (!name || !difficulty || !Array.isArray(board) || board.length !== 15 || board.some(row => !Array.isArray(row) || row.length !== 15)) {
+        return res.status(400).json({ code: 400, message: "Bad request: Missing or invalid fields" });
     }
 
     const newGame = {
-        id: uuidv4(),
-        name: req.body.name,
-        difficulty: req.body.difficulty,
-        board: req.body.board,
-        createdAt: new Date().toISOString()
+        uuid: uuidv4(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        name,
+        difficulty,
+        gameState: 'opening',
+        board
     };
-
+    
     games.push(newGame);
     res.status(201).json(newGame);
 });
 
-// Endpoint: Získání všech her
+// Get all games
 app.get('/api/v1/games', (req, res) => {
-    res.json(games);
+    res.status(200).json(games);
 });
 
-// Endpoint: Získání konkrétní hry podle ID
-app.get('/api/v1/games/:id', (req, res) => {
-    const game = games.find(g => g.id === req.params.id);
+// Get a game by UUID
+app.get('/api/v1/games/:uuid', (req, res) => {
+    const game = games.find(g => g.uuid === req.params.uuid);
     if (!game) {
-        return res.status(404).json({ error: 'Game not found' });
+        return res.status(404).json({ code: 404, message: "Resource not found" });
     }
-    res.json(game);
+    res.status(200).json(game);
 });
 
-// Endpoint: Smazání hry podle ID
-app.delete('/api/v1/games/:id', (req, res) => {
-    const gameIndex = games.findIndex(g => g.id === req.params.id);
+// Update a game by UUID
+app.put('/api/v1/games/:uuid', (req, res) => {
+    const { name, difficulty, board } = req.body;
+    const gameIndex = games.findIndex(g => g.uuid === req.params.uuid);
+
     if (gameIndex === -1) {
-        return res.status(404).json({ error: 'Game not found' });
+        return res.status(404).json({ code: 404, message: "Resource not found" });
     }
+
+    if (!name || !difficulty || !Array.isArray(board) || board.length !== 15 || board.some(row => !Array.isArray(row) || row.length !== 15)) {
+        return res.status(400).json({ code: 400, message: "Bad request: Missing or invalid fields" });
+    }
+
+    const updatedGame = {
+        ...games[gameIndex],
+        name,
+        difficulty,
+        board,
+        updatedAt: new Date()
+    };
+
+    games[gameIndex] = updatedGame;
+    res.status(200).json(updatedGame);
+});
+
+// Delete a game by UUID
+app.delete('/api/v1/games/:uuid', (req, res) => {
+    const gameIndex = games.findIndex(g => g.uuid === req.params.uuid);
+
+    if (gameIndex === -1) {
+        return res.status(404).json({ code: 404, message: "Resource not found" });
+    }
+
     games.splice(gameIndex, 1);
     res.status(204).send();
 });
