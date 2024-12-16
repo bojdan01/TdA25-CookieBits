@@ -22,7 +22,7 @@ var app = router;
 let games = [];
 
 // Create a new game
-app.post('/games', (req, res) => {
+app.post('/api/v1/games', (req, res) => {
     const { name, difficulty, board } = req.body;
     if (!name || !difficulty || !Array.isArray(board) || board.length !== 15 || board.some(row => !Array.isArray(row) || row.length !== 15)) {
         return res.status(400).json({ code: 400, message: "Bad request: Missing or invalid fields" });
@@ -43,12 +43,12 @@ app.post('/games', (req, res) => {
 });
 
 // Get all games
-app.get('/games', (req, res) => {
+app.get('/api/v1/games', (req, res) => {
     res.status(200).json(games);
 });
 
 // Get a game by UUID
-app.get('/games/:uuid', (req, res) => {
+app.get('/api/v1/games/:uuid', (req, res) => {
     const game = games.find(g => g.uuid === req.params.uuid);
     if (!game) {
         return res.status(404).json({ code: 404, message: "Resource not found" });
@@ -57,7 +57,7 @@ app.get('/games/:uuid', (req, res) => {
 });
 
 // Update a game by UUID
-app.put('/games/:uuid', (req, res) => {
+app.put('/api/v1/games/:uuid', (req, res) => {
     const { name, difficulty, board } = req.body;
     const gameIndex = games.findIndex(g => g.uuid === req.params.uuid);
 
@@ -82,7 +82,7 @@ app.put('/games/:uuid', (req, res) => {
 });
 
 // Delete a game by UUID
-app.delete('/games/:uuid', (req, res) => {
+app.delete('/api/v1/games/:uuid', (req, res) => {
     const gameIndex = games.findIndex(g => g.uuid === req.params.uuid);
 
     if (gameIndex === -1) {
