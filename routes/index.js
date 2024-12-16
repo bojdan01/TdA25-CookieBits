@@ -8,6 +8,9 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
+
+
+
 router.get('/api', function(req, res, next) {
   res.json({"organization": "Student Cyber Games"});
 });
@@ -18,8 +21,6 @@ router.get('/api', function(req, res, next) {
 
 
 var app = router;
-
-
 const { v4: uuidv4 } = require('uuid');
 let games = [];
 
@@ -93,4 +94,34 @@ app.delete('/api/v1/games/:uuid', (req, res) => {
 
     games.splice(gameIndex, 1);
     res.status(204).send();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.get('/game', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.status(200).send('<html><body><h1>Game Page</h1><p>Welcome to the game page!</p></body></html>');
+});
+
+// Serve the /game/:uuid page
+router.get('/game/:uuid', (req, res) => {
+  const game = games.find(g => g.uuid === req.params.uuid);
+  if (!game) {
+    return res.status(404).send('<html><body><h1>404 Not Found</h1><p>Game not found.</p></body></html>');
+  }
+  
+  res.setHeader('Content-Type', 'text/html');
+  res.status(200).send(`<html><body><h1>Game: ${game.name}</h1><p>Difficulty: ${game.difficulty}</p></body></html>`);
 });
