@@ -6,11 +6,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-module.exports = router;
-
-
-
-
 router.get('/api', function(req, res, next) {
   res.json({"organization": "Student Cyber Games"});
 });
@@ -18,13 +13,12 @@ router.get('/api', function(req, res, next) {
 
 
 
-
-
+// proč to je v app a ne router? protože mám radši když to je přes app
 var app = router;
 const { v4: uuidv4 } = require('uuid');
 let games = [];
 
-// Create a new game
+// Vytvoří novou hru
 app.post('/api/v1/games', (req, res) => {
     const { name, difficulty, board } = req.body;
     if (!name || !difficulty || !Array.isArray(board) || board.length !== 15 || board.some(row => !Array.isArray(row) || row.length !== 15)) {
@@ -45,12 +39,12 @@ app.post('/api/v1/games', (req, res) => {
     res.status(201).json(newGame);
 });
 
-// Get all games
+// Zobrazí všechny hry
 app.get('/api/v1/games', (req, res) => {
     res.status(200).json(games);
 });
 
-// Get a game by UUID
+// Získává hru pomocí uuid
 app.get('/api/v1/games/:uuid', (req, res) => {
     const game = games.find(g => g.uuid === req.params.uuid);
     if (!game) {
@@ -59,7 +53,7 @@ app.get('/api/v1/games/:uuid', (req, res) => {
     res.status(200).json(game);
 });
 
-// Update a game by UUID
+// Aktualizuje hru pomocí uuid
 app.put('/api/v1/games/:uuid', (req, res) => {
     const { name, difficulty, board } = req.body;
     const gameIndex = games.findIndex(g => g.uuid === req.params.uuid);
@@ -84,7 +78,7 @@ app.put('/api/v1/games/:uuid', (req, res) => {
     res.status(200).json(updatedGame);
 });
 
-// Delete a game by UUID
+// Maže hru pomocí uuid
 app.delete('/api/v1/games/:uuid', (req, res) => {
     const gameIndex = games.findIndex(g => g.uuid === req.params.uuid);
 
@@ -96,26 +90,16 @@ app.delete('/api/v1/games/:uuid', (req, res) => {
     res.status(204).send();
 });
 
+/* 
+Zde se načítají hry /game
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-router.get('/game', (req, res) => {
+a u /game/:uuid uuid je uuid hry
+*/
+app.get('/game', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.status(200).send('<html><body><h1>Game Page</h1><p>Welcome to the game page!</p></body></html>');
 });
 
-// Serve the /game/:uuid page
 router.get('/game/:uuid', (req, res) => {
   const game = games.find(g => g.uuid === req.params.uuid);
   if (!game) {
@@ -125,3 +109,5 @@ router.get('/game/:uuid', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.status(200).send(`<html><body><h1>Game: ${game.name}</h1><p>Difficulty: ${game.difficulty}</p></body></html>`);
 });
+
+module.exports = router;
