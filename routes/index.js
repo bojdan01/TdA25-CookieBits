@@ -19,6 +19,8 @@ router.get('/api', function(req, res, next) {
 
 var app = router;
 
+
+const { v4: uuidv4 } = require('uuid');
 let games = [];
 
 // Create a new game
