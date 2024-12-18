@@ -4,8 +4,9 @@
 
 
 body {
-  padding: 50px;
+  padding: 5px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #363636;
 }
 
 
@@ -15,9 +16,6 @@ body {
   align-items: center;
   padding: 10px;
   background-color: #363636;
-  transform: translateX(0%);
-  transition: transform 0.5s ease-in-out;
-  transform: translateY(0%);
 }
 
 .navbar-container ul {
@@ -43,6 +41,33 @@ body {
 }
 .navbar-button:hover {
   background-color: #555;
+}
+
+.text-menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+
+}
+
+.text-menu-h1 {
+  font-size: 3.5rem /* 48px */;
+  line-height: 1;
+  font-weight: 700;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(255, 255, 255);
+  padding-right: 10px;
+}
+
+.text-menu-p {
+  font-size: 1.25rem /* 36px */;
+  line-height: 1.5rem /* 40px */;
+  font-weight: 700;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: white;
 }
 
 
