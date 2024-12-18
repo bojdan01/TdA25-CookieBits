@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #00B7FF;
+}
+
+.navbar-container ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-container ul li {
+  margin-right: 20px;
+}
+.navbar-container ul li :hover{
+  color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  border-bottom: 2px solid white;
+  padding-bottom: 2px;
+}
+
+.navbar-container ul li a {
+  text-decoration: none;
+  color: white;
+} 
+
+
