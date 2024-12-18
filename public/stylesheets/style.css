@@ -16,8 +16,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #00B7FF;
+  padding: 10px;
+  background-color: #363636;
 }
 
 .navbar-container ul {
@@ -30,11 +30,19 @@ a {
 .navbar-container ul li {
   margin-right: 20px;
 }
-.navbar-container ul li :hover{
-  color: rgb(0, 0, 0);
-  box-sizing: border-box;
-  border-bottom: 2px solid white;
-  padding-bottom: 2px;
+.navbar-button {
+  background-color: #363636;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.navbar-button:hover {
+  background-color: #555;
 }
 
 .navbar-container ul li a {
