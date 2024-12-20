@@ -108,5 +108,16 @@ body {
   margin-top: -200px;
 }
 
+.text-menu-bottom {
+  font-size: 1.25rem /* 36px */;
+  line-height: 1.5rem /* 40px */;
+  font-weight: 500;
+  justify-content:  center;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: white;
+  margin-top: 40px;
+}
+
 
 
