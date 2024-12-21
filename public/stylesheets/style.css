@@ -14,10 +14,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: -30px;
+  margin-top: -50px;
   margin-left: -25px;
   padding: 10px;
   background-color: #363636;
+  height: 50px;
+  width: 100%;
+  box-shadow: 10px 1px 100px #4e4e52;
 }
 
 .navbar-container ul {
@@ -116,7 +119,7 @@ body {
   text-align: center;
   --tw-text-opacity: 1;
   color: white;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 
