@@ -4,39 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CookieBits</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <link href="./output.css" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="app/menu.js"></script>
+    <link rel="stylesheet" href="/styly/style.css">
 </head>
-<body>
-    <nav class="bg-gray-800">
-        <div class="navbar-container">
-            <ul class="text-gray-600 font-semibold">
-                <li><button class="navbar-button" href="#">Hrát</button></li>
-                <li><button class="navbar-button" href="#">Vyhledat všechny hry</button></li>
-                <li><button class="navbar-button" href="#">Vyhledat konkrétní hru</button></li>
-            </ul>
+<body class="bg-gray-600 font-sans">
+
+<nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Otevřít menu</span>
+          <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex shrink-0 items-center mr-10">
+          <img class="h-8 w-auto" src="images/Think-different-Academy_LOGO_bily.svg" alt="Your Company">
         </div>
-      </nav>
-      <div class="text-menu-container">
-        <h1 class="text-menu-h1">
-            CookieBits
-        </h1>
-        <br>
-        <p class="text-menu-p">
-           je hra pro hráče, kteří mají rádi piškvorky.
-        </p>
-      </div>
-      <div class="start-container">
-        <button class="start-button">Začít novou hru</button>
-      </div>
-      <div class="start-container">
-        <button class="start-button">Restartovat hru</button>
-      </div>
-      <div class="game-container">
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <a href="#" class="rounded-md bg-green-600 hover:bg-green-800 px-3 py-2 text-sm font-medium text-white" aria-current="page">Hrát</a>
+            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Řešit úlohu</a>
+            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Zobrazit všechny hry</a>
+            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Vyhledat konkrétní hru</a>
+          </div>
+        </div>
       </div>
 
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <p class="text-white px-3 py-2 text-sm font-medium">Hello TdA</p>
+      </div>
+    </div>
+  </div>
+  <div class="sm:hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pt-2 pb-3">
+      <a href="#" class="block rounded-md text-gray-300 hover:bg-gray-700 px-3 py-2 text-base font-medium text-white" aria-current="page">Upravit</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Smazat</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Zobrazit všechny hry</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Vyhledat konkrétní hru</a>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="flex items-center justify-evenly w-screen p-8">
 
+    <!-- <div class="grid grid-cols-1 gap-4 content-start" id="btn-gm">
+      <button class="rounded-md bg-green-600 hover:bg-green-800 px-3 py-2 text-sm font-medium text-white p-5">Hrát</button>
+      <button class="rounded-md bg-red-600 hover:bg-red-800 px-3 py-2 text-sm font-medium text-white p-5">Smazat hru</button>
+      <button class="rounded-md bg-yellow-500 hover:bg-yellow-600 px-3 py-2 text-sm font-medium text-white p-5">Upravit hru</button>
+    </div> -->
 
+  <div id="game-container">
+
+  </div>
+</div>
 
 </body>
 </html>
