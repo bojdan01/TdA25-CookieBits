@@ -1,0 +1,17 @@
+#game-container {
+    height: 35rem;
+    width: 35rem;
+    border: 1px solid black;
+    display: grid;
+    background:
+        linear-gradient(to right, black 1px, transparent 1px),
+        linear-gradient(to bottom, black 1px, transparent 1px);
+    background-size: calc(100% / 15) calc(100% / 15);
+    /* Rozdělení na 15x15 buněk */
+    background-color: white;
+    /* Bílé pozadí za mřížkou */
+}
+
+#btn-gm button {
+    padding: 20px;
+}
