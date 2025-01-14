@@ -56,6 +56,11 @@
         height: 95vmin;
         width: 95vmin;
     }
+
+    #game {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 

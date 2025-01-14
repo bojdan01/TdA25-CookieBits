@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function (req, res, next) {
+    res.render('index', { title: 'Express' });
 });
 
-router.get('/api', function(req, res, next) {
-  res.json({"organization": "Student Cyber Games"});
+router.get('/api', function (req, res, next) {
+    res.json({ "organization": "Student Cyber Games" });
 });
 
 
@@ -30,7 +30,7 @@ router.post('/api/v1/games', (req, res) => {
         gameState: 'opening',
         board
     };
-    
+
     games.push(newGame);
     res.status(201).json(newGame);
 });
@@ -86,24 +86,27 @@ router.delete('/api/v1/games/:uuid', (req, res) => {
     res.status(204).send();
 });
 
+
+// tohle mozná smazat
+
 /* 
 Zde se načítají hry /game
 
 a u /game/:uuid uuid je uuid hry
 */
-router.get('/game', (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.status(200).send('<html><body><h1>Game Page</h1><p>Welcome to the game page!</p></body></html>');
-});
+// router.get('/game', (req, res) => {
+// res.setHeader('Content-Type', 'text/html');
+// res.status(200).send('<html><body><h1>Game Page</h1><p>Welcome to the game page!</p></body></html>');
+// });
 
-router.get('/game/:uuid', (req, res) => {
-  const game = games.find(g => g.uuid === req.params.uuid);
-  if (!game) {
-    return res.status(404).send('<html><body><h1>404 Not Found</h1><p>Game not found.</p></body></html>');
-  }
-  
-  res.setHeader('Content-Type', 'text/html');
-  res.status(200).send(`<html><body><h1>Game: ${game.name}</h1><p>Difficulty: ${game.difficulty}</p></body></html>`);
-});
+// router.get('/game/:uuid', (req, res) => {
+// const game = games.find(g => g.uuid === req.params.uuid);
+// if (!game) {
+//     return res.status(404).send('<html><body><h1>404 Not Found</h1><p>Game not found.</p></body></html>');
+// }
+
+// res.setHeader('Content-Type', 'text/html');
+// res.status(200).send(`<html><body><h1>Game: ${game.name}</h1><p>Difficulty: ${game.difficulty}</p></body></html>`);
+// });
 
 module.exports = router;
