@@ -10,6 +10,16 @@
     /* Rozdělení na 15x15 buněk */
     background-color: white;
     /* Bílé pozadí za mřížkou */
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+}
+
+.game-x {
+    background-image: url('../images/X_cerne.svg');
+}
+
+.game-o {
+    background-image: url('../images/X_cerne.svg');
 }
 
 #btn-gm button {

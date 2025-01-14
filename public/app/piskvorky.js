@@ -33,8 +33,6 @@ async function createGame(url, data) {
     }
 }
 
-// createGame(url, gameData);
-
 
 
 
