@@ -15,8 +15,43 @@
 #btn-gm button {
     padding: 20px;
 }
+
 #btn-pole {
     width: 10rem;
+}
+
+@media only screen and (max-width: 860px) {
+    #game-container {
+        height: 33rem;
+        width: 33rem;
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    #game-container {
+        height: 30rem;
+        width: 30rem;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    #game-container {
+        height: 25rem;
+        width: 25rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    #game-container {
+        height: 95vmin;
+        width: 95vmin;
+    }
+
+    #game {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
 }
 
 #searchBar {
@@ -25,48 +60,51 @@
     align-items: center;
     padding: 1px;
 }
-@media screen and (min-width: 900px) {
-    
 
-#searchBarInput {
-    width: 50rem;
+@media screen and (min-width: 900px) {
+
+
+    #searchBarInput {
+        width: 50rem;
+    }
 }
-}
+
 @media screen and (max-width: 900px) {
-    
+
 
     #searchBarInput {
         width: 40rem;
     }
- }
- @media screen and (max-width: 700px) {
-    
+}
+
+@media screen and (max-width: 700px) {
+
 
     #searchBarInput {
         width: 30rem;
     }
- }
- @media screen and (max-width: 500px) {
-    
+}
+
+@media screen and (max-width: 500px) {
+
 
     #searchBarInput {
         width: 20rem;
     }
- }
- @media screen and (max-width: 400px) {
-    
+}
+
+@media screen and (max-width: 400px) {
+
 
     #searchBarInput {
         width: 15rem;
     }
- }
- @media screen and (max-width: 300px) {
-    
+}
+
+@media screen and (max-width: 300px) {
+
 
     #searchBarInput {
         width: 10rem;
     }
- }
-
-
-    
+}
