@@ -8,6 +8,8 @@
     <script src="app/menu.js" defer></script>
     <script src="app/piskvorky.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="app/IndexFunkce.js"></script>
+    <script src="app/HryFunkce.js"></script>
     <link rel="stylesheet" href="/styly/style.css">
 </head>
 <body class="bg-gray-600 font-sans">
@@ -62,18 +64,28 @@
       <button class="rounded-md bg-yellow-500 hover:bg-yellow-600 px-3 py-2 text-sm font-medium text-white p-5">Upravit hru</button>
     </div> -->
 
-    <div>
-      <div class="flex flex-col items-center">
-        <button id="btn-pole" class="rounded-md bg-gray-500 hover:bg-gray-800 px-3 py-2 text-sm font-medium text-white p-5 outline outline-offset-1 outline-gray-700">Hrát</button>
+      <div id="game-bnt" class="flex flex-col items-center">
+        <button id="btn-pole-hrat" class="rounded-3xl bg-gray-500 hover:bg-gray-800 px-3 py-2 text-9xl font-medium text-white p-5 outline outline-offset-1 outline-gray-700" onclick="hrat()">Hrát</button>
+        <br>
+      </div>
+      <div id="game-bnt-2" class="flex flex-col items-center" style="display: none;">
+        <button id="btn-pole" class="rounded-md bg-gray-500 hover:bg-gray-800 px-3 py-2 text-sm font-medium text-white p-5 outline outline-offset-1 outline-gray-700"onclick="hrat()">Nová hra</button>
         <br>
         <button id="btn-pole" class="rounded-md bg-gray-500 hover:bg-gray-800 px-3 py-2 text-sm font-medium text-white p-5 outline outline-offset-1 outline-gray-700">Smazat hru</button>
         <br>
         <button id="btn-pole" class="rounded-md bg-gray-500 hover:bg-gray-800 px-3 py-2 text-sm font-medium text-white p-5 outline outline-offset-1 outline-gray-700">Upravit hru</button>
         <br>
       </div>
-    </div>
+      <div id="game-start" class="flex flex-col items-center" style="display: none;">
+        <label for="game-name" class="block text-sm font-medium text-gray-200" id="game-name-label">Název hry</label>
+        <input type="text" name="game-name" id="game-name" class="rounded-md bg-gray-500 hover:bg-gray-800 px-3 py-2 text-sm font-medium text-white p-5 outline outline-offset-1 outline-gray-700">
+        <br>
+        <button id="btn-pole" class="rounded-md bg-gray-500 hover:bg-gray-800 px-3 py-2 text-sm font-medium text-white p-5 outline outline-offset-1 outline-gray-700" onclick="novaHra()">Spustit hru</button>
+        <br>
+      </div>
 
-  <div id="game-container">
+
+  <div id="game-container" style="display: none;">
 
 
   </div>
