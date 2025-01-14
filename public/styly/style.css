@@ -20,6 +20,16 @@
     width: 10rem;
 }
 
+
+@media only screen and (max-width: 640px) {
+
+    #game {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
+
 @media only screen and (max-width: 860px) {
     #game-container {
         height: 33rem;
@@ -46,13 +56,9 @@
         height: 95vmin;
         width: 95vmin;
     }
-
-    #game {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-    }
 }
+
+
 
 #searchBar {
     display: flex;
