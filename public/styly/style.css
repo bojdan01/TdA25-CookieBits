@@ -17,5 +17,56 @@
 }
 #btn-pole {
     width: 10rem;
+}
+
+#searchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+}
+@media screen and (min-width: 900px) {
+    
+
+#searchBarInput {
+    width: 50rem;
+}
+}
+@media screen and (max-width: 900px) {
+    
+
+    #searchBarInput {
+        width: 40rem;
     }
+ }
+ @media screen and (max-width: 700px) {
+    
+
+    #searchBarInput {
+        width: 30rem;
+    }
+ }
+ @media screen and (max-width: 500px) {
+    
+
+    #searchBarInput {
+        width: 20rem;
+    }
+ }
+ @media screen and (max-width: 400px) {
+    
+
+    #searchBarInput {
+        width: 15rem;
+    }
+ }
+ @media screen and (max-width: 300px) {
+    
+
+    #searchBarInput {
+        width: 10rem;
+    }
+ }
+
+
     
